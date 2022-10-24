@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { productsArray, getProductData } from "./productStore";
+import { productsArray, getProductData } from "./productStore"
 
 
 export const CartContext = createContext({
@@ -17,7 +17,7 @@ export function CartProvider({ children }) {
 
   function getProductQuantity(id) {
     // ? is error handling for undefined (wont return quantity for undefined and error out)
-    const quantity = cartProducts.find(product => product.id)?.quantity
+    const quantity = cartProducts.find(product => product.id === id)?.quantity
 
     if (quantity === undefined) {
       return 0
@@ -87,7 +87,7 @@ export function CartProvider({ children }) {
   };
 
   const contextValue = {
-    items: [],
+    items: cartProducts,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,

@@ -12,7 +12,6 @@ function Store() {
             <ProductCard product={product}/>
           </Col>
         ))}
-
       </Row>
     </>
   )
